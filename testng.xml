@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<!--
+    Parallel execution: every Cucumber scenario is one row of the DataProvider in TestRunner.
+    data-provider-thread-count controls how many scenarios run at the same time.
+    Each thread gets its own WebDriver (see Driver.java - ThreadLocal), locally or on Selenium Grid.
+-->
+<suite name="Books To Scrape - Cucumber BDD Suite"
+       parallel="methods"
+       thread-count="3"
+       data-provider-thread-count="3"
+       verbose="1">
+
+    <test name="Cucumber Scenarios">
+        <classes>
+            <class name="com.bookstore.runners.TestRunner"/>
+        </classes>
+    </test>
+</suite>
